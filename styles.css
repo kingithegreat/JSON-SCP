@@ -1,47 +1,50 @@
+/* Set the background color of the entire page to black */
 body {
- background-color: black;
+    background-color: black;
 }
 
-
-
-h1{
+/* Style for the main heading (h1) */
+h1 {
     color: white;
     text-align: center;
 }
 
-
+/* Styling for each data display div */
 #dataDisplay div {
-    color: white; 
+    color: white;
     border: 2px solid white;
     border-radius: 5px;
     margin: 10px 0;
     padding: 10px;
     font-family: monospace;
-   font-size : 20px;
+    font-size: 20px;
 }
 
-#fetchButton{
+/* Styling for the fetch button */
+#fetchButton {
     background-color: black;
-    color:white;
+    color: white;
     border: 2px solid white;
     font-size: 17px;
 }
 
-#dataDisplay button{
+/* Styling for buttons within the data display */
+#dataDisplay button {
     background-color: black;
-    color:white;
+    color: white;
     border: 2px solid white;
     margin-top: 5px;
     font-size: 17px;
 }
 
+/* Hover effect for the fetch button */
 #fetchButton:hover {
-    background-color: rgb(255, 255, 255); 
-    color: rgb(0, 0, 0); 
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
+/* Hover effect for the read button */
 #dataDisplay button.read:hover {
     background-color: white;
     color: black;
 }
-
