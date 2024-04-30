@@ -45,9 +45,9 @@ function displayData(data) {
 
     data.forEach(item => {
         const div = document.createElement("div");
-        const content = `<strong>Subject: </strong> ${item.subject}
+        const content = `<strong>Title: </strong> ${item.Title}
             <br><strong>Class: </strong> ${item.class}
-            <br><strong>Summary: </strong> ${item.summary}
+            <br><strong>Description: </strong> ${item.Description}
             <br>`;
 
         // Create a button for text-to-speech
@@ -55,8 +55,8 @@ function displayData(data) {
         speechButton.textContent = "Read";
 
         // Set up the text to be spoken
-        const monster = item.summary;
-        speechButton.addEventListener('click', () => { speakText(monster) });
+        const monster = item.Description;
+        speechButton.addEventListener('click', () => { speakText(item.Title + ". " + item.class + ". "+ monster+ ". ") });
 
         // Append content and button to the display area
         div.innerHTML = content;
