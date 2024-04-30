@@ -1,4 +1,4 @@
-// Global variable to keep track of current speech
+//  variable to keep track of current speech
 let currentSpeech = null;
 
 /**
@@ -6,9 +6,9 @@ let currentSpeech = null;
  * @param {string} text - The text to be spoken.
  */
 function speakText(text) {
-    // Check if we are currently speaking
+    // Check if currently speaking
     if (window.speechSynthesis.speaking) {
-        // If we are speaking, stop the current speech
+        // If speaking, stop the current speech
         window.speechSynthesis.cancel();
         // If the current speech is the same as the new text, don't start speaking again
         if (currentSpeech === text) {
@@ -25,7 +25,7 @@ function speakText(text) {
     window.speechSynthesis.speak(speech);
 }
 
-// Event listener for the fetch button
+// Add Event listener for the fetch button
 document.getElementById("fetchButton").addEventListener('click', () => {
     // Fetch JSON data
     fetch('json.json')
@@ -52,7 +52,7 @@ function displayData(data) {
 
         // Create a button for text-to-speech
         const speechButton = document.createElement('button');
-        speechButton.textContent = "Read";
+        speechButton.textContent = "Read Contents";
 
         // Set up the text to be spoken
         const monster = item.Description;
@@ -60,7 +60,7 @@ function displayData(data) {
 
         // Append content and button to the display area
         div.innerHTML = content;
-        displayData.appendChild(speechButton);
         displayData.appendChild(div);
+        displayData.appendChild(speechButton);
     });
 }
