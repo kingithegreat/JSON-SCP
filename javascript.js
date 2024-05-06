@@ -1,14 +1,11 @@
-//  variable to keep track of current speech
+//  variable to track current speech
 let currentSpeech = null;
 
-/**
- * Speaks the provided text using text-to-speech.
- * @param {string} text - The text to be spoken.
- */
+
 function speakText(text) {
     // Check if currently speaking
     if (window.speechSynthesis.speaking) {
-        // If speaking, stop the current speech
+        // If speaking, cancel the current speech
         window.speechSynthesis.cancel();
         // If the current speech is the same as the new text, don't start speaking again
         if (currentSpeech === text) {
@@ -21,9 +18,12 @@ function speakText(text) {
     const speech = new SpeechSynthesisUtterance(text);
     // Assign currentSpeech to new text
     currentSpeech = text;
-    // Speak the actual text
+    // Speak the json text
     window.speechSynthesis.speak(speech);
 }
+    
+
+    
 
 // Add Event listener for the fetch button
 document.getElementById("fetchButton").addEventListener('click', () => {
@@ -36,19 +36,19 @@ document.getElementById("fetchButton").addEventListener('click', () => {
         .catch(error => console.error('Error:', error));
 });
 
-/**
- * Displays the fetched data on the webpage.
- * @param {Array} data - An array of data items.
- */
+
+
 function displayData(data) {
     const displayData = document.getElementById("dataDisplay");
-
+    // Display the data for each div
     data.forEach(item => {
         const div = document.createElement("div");
         const content = `<strong>Title: </strong> ${item.Title}
             <br><strong>Class: </strong> ${item.class}
             <br><strong>Description: </strong> ${item.Description}
-            <br>`;
+            <br><strong>Containment: </strong> ${item.Containment}
+            <br>${item.Image}
+            `;
 
         // Create a button for text-to-speech
         const speechButton = document.createElement('button');
@@ -57,6 +57,8 @@ function displayData(data) {
         // Set up the text to be spoken
         const monster = item.Description;
         speechButton.addEventListener('click', () => { speakText(item.Title + ". " + item.class + ". "+ monster+ ". ") });
+
+          
 
         // Append content and button to the display area
         div.innerHTML = content;
